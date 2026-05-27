@@ -1,0 +1,200 @@
+/* =========================================================
+   CARDS — Conteneur principal d'une notion
+========================================================= */
+.card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.notion-card { padding: 28px 32px 32px; }
+
+.notion-card.placeholder {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 48px 32px;
+  font-style: italic;
+}
+
+/* =========================================================
+   TITRE D'UNE NOTION (avec icône colorée)
+========================================================= */
+.notion-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.notion-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notion-icon svg { width: 22px; height: 22px; }
+
+.icon-blue   { color: var(--color-icon-blue); }
+.icon-purple { color: var(--color-icon-purple); }
+.icon-green  { color: var(--color-icon-green); }
+.icon-orange { color: var(--color-icon-orange); }
+.icon-pink   { color: var(--color-icon-pink); }
+.icon-cyan   { color: var(--color-icon-cyan); }
+
+/* =========================================================
+   BODY EN GRILLE 2 COLONNES (texte | code)
+========================================================= */
+.notion-body {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.notion-body.single-col { grid-template-columns: 1fr; }
+
+.notion-text h3,
+.notion-text h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 18px 0 10px;
+}
+
+.notion-text p {
+  margin-bottom: 12px;
+  color: var(--color-text-secondary);
+}
+
+.notion-text ul,
+.notion-text ol {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.notion-text li {
+  position: relative;
+  padding: 4px 0 4px 18px;
+  color: var(--color-text-secondary);
+}
+
+.notion-text li::before {
+  content: "•";
+  color: var(--color-accent);
+  font-weight: 700;
+  position: absolute;
+  left: 4px;
+}
+
+.notion-text strong { color: var(--color-text-primary); font-weight: 600; }
+
+.notion-text code,
+.inline-code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 2px 6px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  color: #be185d;
+}
+
+@media (max-width: 1100px) {
+  .notion-body { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   BLOCS DE CODE
+========================================================= */
+.code-block {
+  background: var(--color-code-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  position: relative;
+  border: 1px solid #1f2937;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--color-code-header-bg);
+  border-bottom: 1px solid #1f2937;
+}
+
+.code-filename {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+.code-copy {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+  font-family: var(--font-sans);
+}
+
+.code-copy:hover { background: rgba(255,255,255,0.05); color: #fff; }
+.code-copy.copied { color: #22c55e; }
+.code-copy svg { width: 14px; height: 14px; }
+
+.code-block pre {
+  margin: 0;
+  padding: 18px 20px;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.code-block pre code { background: none; color: var(--color-code-text); padding: 0; font-size: inherit; }
+
+/* Scrollbar sur les blocs de code */
+.code-block pre::-webkit-scrollbar { height: 6px; }
+.code-block pre::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+
+/* =========================================================
+   ALERTES — Pourquoi, Piège, Astuce
+========================================================= */
+.alert {
+  display: flex;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin: 16px 0;
+  border-left: 4px solid;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.alert-icon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.alert-body { flex: 1; color: var(--color-text-secondary); }
+.alert-body strong { color: var(--color-text-primary); display: inline; }
+.alert-body p { margin-bottom: 0; color: inherit; }
+
+.alert-warn { background: var(--color-warn-bg); border-color: var(--color-warn-border); }
+.alert-tip  { background: var(--color-tip-bg);  border-color: var(--color-tip-border); }
+.alert-info { background: var(--color-info-bg); border-color: var(--color-info-border); }

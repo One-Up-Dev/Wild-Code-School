@@ -1,0 +1,175 @@
+/* =========================================================
+   DESIGN TOKENS — Variables CSS centralisées
+========================================================= */
+:root {
+  /* Couleurs sidebar */
+  --color-sidebar-bg: #0f172a;
+  --color-sidebar-text: #94a3b8;
+  --color-sidebar-active-text: #ffffff;
+  --color-sidebar-section: #475569;
+  --color-sidebar-hover-bg: rgba(148, 163, 184, 0.08);
+
+  /* Couleurs accent */
+  --color-accent: #f91f4b;
+  --color-accent-soft: rgba(249, 31, 75, 0.08);
+
+  /* Couleurs main */
+  --color-bg: #f8fafc;
+  --color-card-bg: #ffffff;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  --color-border: #e2e8f0;
+
+  /* Couleurs code */
+  --color-code-bg: #1e1e2e;
+  --color-code-header-bg: #181825;
+  --color-code-text: #e2e8f0;
+
+  /* Couleurs alertes */
+  --color-warn-border: #f59e0b;
+  --color-warn-bg: #fffbeb;
+  --color-tip-border: #22c55e;
+  --color-tip-bg: #f0fdf4;
+  --color-info-border: #3b82f6;
+  --color-info-bg: #eff6ff;
+
+  /* Icônes colorées des notions */
+  --color-icon-blue: #3b82f6;
+  --color-icon-purple: #a855f7;
+  --color-icon-green: #22c55e;
+  --color-icon-orange: #f59e0b;
+  --color-icon-pink: #ec4899;
+  --color-icon-cyan: #06b6d4;
+
+  /* Layout */
+  --sidebar-width: 280px;
+  --content-max-width: 1200px;
+  --radius-card: 12px;
+  --radius-input: 999px;
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(15, 23, 42, 0.08);
+
+  /* Typo */
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* =========================================================
+   RESET MINIMAL
+========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style-position: inside; }
+img, svg { display: block; max-width: 100%; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  border: none;
+}
+
+/* =========================================================
+   LAYOUT GLOBAL
+========================================================= */
+.main {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  padding: 32px 48px 64px;
+  max-width: calc(var(--sidebar-width) + var(--content-max-width));
+}
+
+/* Barre de recherche */
+.search-wrapper {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 20px 14px 52px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.search-input::placeholder { color: var(--color-text-muted); }
+
+.search-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+/* Titres de module */
+.module-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.module-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 32px;
+}
+
+/* Animation fade-in au changement de module */
+.module {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.empty-search {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 900px) {
+  .main { margin-left: 0; padding: 24px 20px 48px; }
+}

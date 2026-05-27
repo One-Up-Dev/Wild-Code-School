@@ -1,0 +1,108 @@
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--color-sidebar-bg);
+  color: var(--color-sidebar-text);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 50;
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+
+/* En-tête / logo */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 24px 28px;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon svg { width: 20px; height: 20px; }
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  line-height: 1.15;
+}
+
+/* Navigation */
+.sidebar-nav {
+  flex: 1;
+  padding: 0 12px 24px;
+}
+
+.nav-section {
+  margin-top: 18px;
+}
+
+.nav-section-title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: var(--color-sidebar-section);
+  padding: 10px 12px 6px;
+}
+
+/* Liens */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-sidebar-text);
+  transition: background 0.15s, color 0.15s;
+  margin-bottom: 2px;
+}
+
+.nav-link:hover {
+  background: var(--color-sidebar-hover-bg);
+  color: var(--color-sidebar-active-text);
+}
+
+.nav-link.active {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(249, 31, 75, 0.3);
+}
+
+.nav-link.active .nav-icon { color: #fff; }
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--color-sidebar-text);
+  transition: color 0.15s;
+}
+
+.nav-home { margin-bottom: 4px; }
